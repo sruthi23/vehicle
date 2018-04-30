@@ -7,6 +7,8 @@ var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var createCar = require('./invoke.js');
+var registerUser = require('./registerUser.js');
+var query=require('./query.js');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -27,15 +29,21 @@ router.get('/',function(req, res) {
 
 router.post('/invoke',function(req, res) {	
 
-	var carno = req.body.carno;
-	var make = req.body.make;
-	var model = req.body.model;
-	var year = req.body.year;
-	var vin = req.body.vin;
-	var plate = req.body.plate;
-	var engine = req.body.engine;
 	createCar.registerCar(req.body);
 	res.json({ res: 'invoke!' });   
+});
+
+router.post('/registerUser', function(req, res){
+	registerUser.registerNewUser(req.body);
+	res.json({res:'registeres user'});
+
+});
+
+router.post('/query', function(req,res){
+	console.log(req.body);
+	var data= query.allCarDetails(req.body);
+	console.log("DDDD "+data);
+	res.json({message:"list"});
 });
 
 // more routes for our API will happen here
