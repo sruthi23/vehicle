@@ -17,9 +17,9 @@
 --
 
 3. 
--url :/api/query
--method :POST
--url params : func,user,array of arguments
--success response :
+- url :/api/query
+- method :POST
+- url params : func,user,array of arguments
+- success response :
 -- code :200
 --
