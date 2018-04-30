@@ -25,8 +25,16 @@ router.get('/',function(req, res) {
 	res.json({ message: 'hooray! welcome to our api!' });   
 });
 
-router.post('/invoke',function(req, res) {
+router.post('/invoke',function(req, res) {	
 
+	var carno = req.body.carno;
+	var make = req.body.make;
+	var model = req.body.model;
+	var year = req.body.year;
+	var vin = req.body.vin;
+	var plate = req.body.plate;
+	var engine = req.body.engine;
+	createCar.registerCar(req.body);
 	res.json({ res: 'invoke!' });   
 });
 
