@@ -29,7 +29,7 @@ var store_path = path.join(__dirname, 'hfc-key-store');
 console.log('Store path:'+store_path);
 var tx_id = null;
 
-fucntion registerCar(args[]){
+function registerCar(arg){
 
 // create the key value store as defined in the fabric-client/config/default.json 'key-value-store' setting
 Fabric_Client.newDefaultKeyValueStore({ path: store_path
@@ -60,23 +60,19 @@ Fabric_Client.newDefaultKeyValueStore({ path: store_path
 	// createCar chaincode function - requires 5 args, ex: args: ['CAR12', 'Honda', 'Accord', 'Black', 'Tom'],
 	// changeCarOwner chaincode function - requires 2 args , ex: args: ['CAR10', 'Dave'],
 	// must send the proposal to endorsing peers
-	/*var request = {
-		//targets: let default to the peer assigned to the client
-		chaincodeId: 'fabcar',
-		fcn: 'createCar',
-		args: ['CAR2','Suzuki','Baleno','2015','108','KL04','1.0 L Boosterjet I3 turbo petrol'],
-		chainId: 'mychannel',
-		txId: tx_id
-	};
-	*/
+
+	var data = [arg.carno,arg.make,arg.model,arg.year,arg.vin,arg.plate,arg.engine];
+	console.log(data);
 	var request = {
 		//targets: let default to the peer assigned to the client
 		chaincodeId: 'fabcar',
 		fcn: 'createCar',
-		args: [args[0],args[1],args[2],args[3],args[4],args[5],args[6]],
+		args: [data[0],data[1],data[2],data[3],data[4],data[5],data[6]],
 		chainId: 'mychannel',
 		txId: tx_id
 	};
+
+	console.log(request);
 
 	// send the transaction proposal to the peers
 	return channel.sendTransactionProposal(request);
