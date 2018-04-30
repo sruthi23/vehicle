@@ -29,6 +29,8 @@ var store_path = path.join(__dirname, 'hfc-key-store');
 console.log('Store path:'+store_path);
 var tx_id = null;
 
+fucntion registerCar(args[]){
+
 // create the key value store as defined in the fabric-client/config/default.json 'key-value-store' setting
 Fabric_Client.newDefaultKeyValueStore({ path: store_path
 }).then((state_store) => {
@@ -58,11 +60,20 @@ Fabric_Client.newDefaultKeyValueStore({ path: store_path
 	// createCar chaincode function - requires 5 args, ex: args: ['CAR12', 'Honda', 'Accord', 'Black', 'Tom'],
 	// changeCarOwner chaincode function - requires 2 args , ex: args: ['CAR10', 'Dave'],
 	// must send the proposal to endorsing peers
-	var request = {
+	/*var request = {
 		//targets: let default to the peer assigned to the client
 		chaincodeId: 'fabcar',
 		fcn: 'createCar',
 		args: ['CAR2','Suzuki','Baleno','2015','108','KL04','1.0 L Boosterjet I3 turbo petrol'],
+		chainId: 'mychannel',
+		txId: tx_id
+	};
+	*/
+	var request = {
+		//targets: let default to the peer assigned to the client
+		chaincodeId: 'fabcar',
+		fcn: 'createCar',
+		args: [args[0],args[1],args[2],args[3],args[4],args[5],args[6]],
 		chainId: 'mychannel',
 		txId: tx_id
 	};
@@ -159,3 +170,6 @@ if (isProposalGood) {
 }).catch((err) => {
 	console.error('Failed to invoke successfully :: ' + err);
 });
+
+}
+module.exports.registerCar = registerCar;
