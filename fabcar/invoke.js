@@ -44,13 +44,13 @@ Fabric_Client.newDefaultKeyValueStore({ path: store_path
 	fabric_client.setCryptoSuite(crypto_suite);
 
 	// get the enrolled user from persistence, this user will sign all requests
-	return fabric_client.getUserContext('user1', true);
+	return fabric_client.getUserContext(arg.user, true);
 }).then((user_from_store) => {
 	if (user_from_store && user_from_store.isEnrolled()) {
-		console.log('Successfully loaded user1 from persistence');
+		console.log('Successfully loaded ' +arg.user+' from persistence');
 		member_user = user_from_store;
 	} else {
-		throw new Error('Failed to get user1.... run registerUser.js');
+		throw new Error('Failed to get' +arg.user+' .. run registerUser.js');
 	}
 
 	// get a transaction id object based on the current user assigned to fabric client
@@ -61,13 +61,11 @@ Fabric_Client.newDefaultKeyValueStore({ path: store_path
 	// changeCarOwner chaincode function - requires 2 args , ex: args: ['CAR10', 'Dave'],
 	// must send the proposal to endorsing peers
 
-	var data = [arg.carno,arg.make,arg.model,arg.year,arg.vin,arg.plate,arg.engine];
-	console.log(data);
 	var request = {
 		//targets: let default to the peer assigned to the client
 		chaincodeId: 'fabcar',
 		fcn: 'createCar',
-		args: [data[0],data[1],data[2],data[3],data[4],data[5],data[6]],
+		args: [arg.carno,arg.make,arg.model,arg.year,arg.vin,arg.plate,arg.engine],
 		chainId: 'mychannel',
 		txId: tx_id
 	};
