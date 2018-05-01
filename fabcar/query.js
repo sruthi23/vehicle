@@ -73,8 +73,11 @@ Fabric_Client.newDefaultKeyValueStore({ path: store_path
 			console.error("error from query = ", query_responses[0]);
 		} else {
 			
-			console.log("Response is ", query_responses[0].toString());
-			//return(query_responses[0]);
+			for(let i = 0; i < query_responses.length; i++) {
+				console.log(util.format('Query result from peer [%s]: %s', i, query_responses[i].toString('utf8')));
+			}
+			//return query_responses;
+			return Buffer.from(JSON.stringify(query_responses[0]));
 
 		}
 	} else {
