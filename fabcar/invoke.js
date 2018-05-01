@@ -76,6 +76,7 @@ Fabric_Client.newDefaultKeyValueStore({ path: store_path
 	return channel.sendTransactionProposal(request);
 }).then((results) => {
 	var proposalResponses = results[0];
+
 	var proposal = results[1];
 	let isProposalGood = false;
 	if (proposalResponses && proposalResponses[0].response &&
@@ -83,6 +84,8 @@ Fabric_Client.newDefaultKeyValueStore({ path: store_path
 		isProposalGood = true;
 	console.log('Transaction proposal was good');
 } else {
+
+	console.log("results "+results);
 	console.error('Transaction proposal was bad');
 }
 if (isProposalGood) {

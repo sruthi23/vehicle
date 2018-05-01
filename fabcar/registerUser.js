@@ -59,7 +59,7 @@ Fabric_Client.newDefaultKeyValueStore({ path: store_path
   }).then((secret) => {
     // next we need to enroll the user with CA server
     console.log('Successfully registered '+args.name+' - secret:'+ secret);
-
+    
     return fabric_ca_client.enroll({enrollmentID: args.name, enrollmentSecret: secret});
   }).then((enrollment) => {
     console.log('Successfully enrolled member user '+args.name);
