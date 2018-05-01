@@ -34,8 +34,9 @@ router.post('/invoke',function(req, res) {
 });
 
 router.post('/registerUser', function(req, res){
-	registerUser.registerNewUser(req.body);
-	res.json({res:'registeres user'});
+	registerUser.registerNewUser(req.body).then((data) => {
+		res.json({res: data})
+	})
 
 });
 
