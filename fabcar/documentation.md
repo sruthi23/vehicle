@@ -1,6 +1,7 @@
 ### This document is all about the api used in this project.  
 
------------
+1. Vehicle Registration
+
 * url : /api/invoke
 * method : POST
 *  url params : carno,make,model,year,vin,plate,engine,owner
@@ -19,7 +20,8 @@
   * owner : Anu
   -- result : CAR1 was successfully registered in the name of Anu
 
-------------
+2. Register User
+
 * url : /api/registerUser
 * method : POST
 * url params : name,address,contact
@@ -33,7 +35,8 @@
   * contact : 9878938603
   -- result : { " Anu was successfully registered"}
 
------------
+3. Search
+
 * url :/api/query
 *  method :POST
 *  url params : func,user,array of arguments
@@ -58,7 +61,8 @@
 }
 }
 
------
+4. Change Ownership
+
 * url :/api/changeowner
 *  method :POST
 *  url params : array of arguments
