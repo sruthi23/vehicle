@@ -42,10 +42,13 @@ router.post('/registerUser', function(req, res){
 });
 
 router.post('/query', async function(req,res){
-	console.log(req.body);
+	/*console.log(req.body);
 	var data = await query.allCarDetails(req.body);
 	console.log("Inside server.js "+data);
-	res.json({message:data});
+	res.json({message:data});*/
+	query.allCarDetails(req.body).then((data) => {
+		res.json({res: data})
+	})
 
 });
 

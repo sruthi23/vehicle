@@ -84,11 +84,8 @@ return new Promise(function (resolve, reject) {
 	} else {
 		console.log("No payloads were returned from query");
 	}
-}).catch((err) => {
-	//console.error('Failed to query successfully :: ' + err);
-	reject(err)
-});.then((query_responses) => {
-	resolve(query_responses[0])
+}).then((query_responses) => {
+	resolve (query_responses.toString());
 }).catch((err) => {
 	reject(err)
 })
