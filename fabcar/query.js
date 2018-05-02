@@ -73,19 +73,20 @@ return new Promise(function (resolve, reject) {
 		if (query_responses[0] instanceof Error) {
 			console.error("error from query = ", query_responses[0]);
 		} else {
-			
+
+			var response = [];
 			for(let i = 0; i < query_responses.length; i++) {
 				console.log(util.format('Query result from peer [%s]: %s', i, query_responses[i].toString('utf8')));
+				response[i] =  query_responses[i];
 			}
-			//return query_responses;
-			return Buffer.from(JSON.stringify(query_responses[0]));
+			response = response.toString('utf8');
+			response = JSON.parse(response);
+			resolve(response);		
 
 		}
 	} else {
 		console.log("No payloads were returned from query");
 	}
-}).then((query_responses) => {
-	resolve (query_responses.toString());
 }).catch((err) => {
 	reject(err)
 })

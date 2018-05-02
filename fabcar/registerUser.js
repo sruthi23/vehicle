@@ -61,7 +61,7 @@ function registerNewUser (args) {
     console.log('Successfully enrolled member user ' + args.name)
     return fabric_client.createUser(
       {username: args.name,
-        mspid: args.mspid,
+        mspid: 'Org1MSP',
         address: args.address,
         contact: args.contact,
         cryptoContent: { privateKeyPEM: enrollment.key.toBytes(), signedCertPEM: enrollment.certificate }
