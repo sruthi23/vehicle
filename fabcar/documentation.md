@@ -44,7 +44,7 @@
 -- arguments :
 *   func : queryCar/queryAllCar
 *	user : varun
-*	arg[] : CAR1
+*	data[] : CAR1
 -- result : {
 "res": {
 "VIN": "105",
@@ -58,5 +58,16 @@
 }
 }
 
-
 -----
+* url :/api/changeowner
+*  method :POST
+*  url params : array of arguments
+*  success response :
+-- code :200
+-- successfully registered in the name of new owner
+- sample 1:  
+-- arguments :
+*	data[]: CAR1
+*	data[] : Anu
+
+----
