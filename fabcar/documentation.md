@@ -1,25 +1,62 @@
 ``` This document is all about the api used in this project.```   
 
-1. 
-- url : /api/invoke
-- method : POST
-- url params : carno,make,model,year,vin,plate,engine
-- success response :  
+-----------
+* url : /api/invoke
+* method : POST
+*  url params : carno,make,model,year,vin,plate,engine,owner
+* success response :  
 -- code : 200
--- Successfully committed the change to the ledger by the peer   
+-- carno was successfully registered in the name of owner  
+*  sample :
+-- arguments :
+* carno : CAR1
+* make : Suzuki
+* model : Baleno
+* year : 2015
+* vin : 105
+* plate : kl09
+* engine : L _K-series_ I4 (petrol)
+* owner : Anu
+-- result : CAR1 was successfully registered in the name of Anu
 
-2. 
-- url : /api/registerUser
-- method : POST
--url params : name,mspid,address,contact
--success response :
+------------
+* url : /api/registerUser
+* method : POST
+* url params : name,address,contact
+* success response :
 -- code : 200
---
+-- name successfully registered
+* sample
+-- arguments :
+* name : Anu
+* address : SeaShore
+* contact : 9878938603
+-- result : { " Anu was successfully registered"}
 
-3. 
-- url :/api/query
-- method :POST
-- url params : func,user,array of arguments
-- success response :
+-----------
+* url :/api/query
+*  method :POST
+*  url params : func,user,array of arguments
+*  success response :
 -- code :200
---
+-- stored data will be displayed as per query
+- sample 1:  
+-- arguments :
+*   func : queryCar/queryAllCar
+*	user : varun
+*	arg[] : CAR1
+-- result : {
+"res": {
+"VIN": "105",
+"docType": "car",
+"engine": "fghffgh",
+"make": "suzuki",
+"model": "Baleno",
+"owner": "varun",
+"plate": "kl07",
+"year": "2015"
+}
+}
+
+
+-----
