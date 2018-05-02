@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 var createCar = require('./invoke.js');
 var registerUser = require('./registerUser.js');
 var query = require('./query.js');
+var changeowner = require('./changeowner.js');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -41,13 +42,19 @@ router.post('/registerUser', function(req, res){
 
 });
 
-router.post('/query', async function(req,res){
+router.post('/query', function(req,res){
 	query.allCarDetails(req.body).then((data) => {
 		res.json({res: data})
 	})
 
 });
 
+router.post('/changeowner',function(req,res){
+	changeowner.changeOwner(req.body).then((data) => {
+		res.json({res: data})
+	})
+
+});
 // more routes for our API will happen here
 
 // REGISTER OUR ROUTES -------------------------------
