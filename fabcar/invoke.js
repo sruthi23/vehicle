@@ -45,13 +45,13 @@ return new Promise(function (resolve, reject) {
 	fabric_client.setCryptoSuite(crypto_suite);
 
 	// get the enrolled user from persistence, this user will sign all requests
-	return fabric_client.getUserContext(arg.owner, true);
+	return fabric_client.getUserContext('admin', true)
 }).then((user_from_store) => {
 	if (user_from_store && user_from_store.isEnrolled()) {
-		console.log('Successfully loaded ' +arg.owner+' from persistence');
+		console.log('Successfully loaded admin from persistence');
 		member_user = user_from_store;
 	} else {
-		throw new Error('Failed to get' +arg.owner+' .. run registerUser.js');
+		throw new Error('Failed to get admin.... run enrollAdmin.js');
 	}
 
 	// get a transaction id object based on the current user assigned to fabric client
