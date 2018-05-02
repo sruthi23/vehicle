@@ -2,8 +2,8 @@
 
 -----------
 * url : /api/invoke
-* method : POST
-*  url params : carno,make,model,year,vin,plate,engine,owner
+  * method : POST
+  *  url params : carno,make,model,year,vin,plate,engine,owner
 * success response :  
 -- code : 200
 -- carno was successfully registered in the name of owner  
