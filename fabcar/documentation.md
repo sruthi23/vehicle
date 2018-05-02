@@ -1,6 +1,6 @@
 ### This document is all about the api used in this project.  
 
-1. Vehicle Registration
+##### 1. Vehicle Registration
 
 * url : /api/invoke
 * method : POST
@@ -20,7 +20,7 @@
   * owner : Anu
   -- result : CAR1 was successfully registered in the name of Anu
 
-2. Register User
+##### 2. Register User
 
 * url : /api/registerUser
 * method : POST
@@ -35,7 +35,7 @@
   * contact : 9878938603
   -- result : { " Anu was successfully registered"}
 
-3. Search
+##### 3. Search
 
 * url :/api/query
 *  method :POST
@@ -61,7 +61,7 @@
 }
 }
 
-4. Change Ownership
+##### 4. Change Ownership
 
 * url :/api/changeowner
 *  method :POST
