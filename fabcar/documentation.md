@@ -5,19 +5,19 @@
   * method : POST
   *  url params : carno,make,model,year,vin,plate,engine,owner
 * success response :  
--- code : 200
--- carno was successfully registered in the name of owner  
-*  sample :
--- arguments :
-* carno : CAR1
-* make : Suzuki
-* model : Baleno
-* year : 2015
-* vin : 105
-* plate : kl09
-* engine : L _K-series_ I4 (petrol)
-* owner : Anu
--- result : CAR1 was successfully registered in the name of Anu
+  -- code : 200   
+  -- carno was successfully registered in the name of owner  
+  *  sample :
+  -- arguments :
+  * carno : CAR1
+  * make : Suzuki
+  * model : Baleno
+  * year : 2015
+  * vin : 105
+  * plate : kl09
+  * engine : L _K-series_ I4 (petrol)
+  * owner : Anu
+  -- result : CAR1 was successfully registered in the name of Anu
 
 ------------
 * url : /api/registerUser
