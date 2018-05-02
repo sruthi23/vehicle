@@ -25,7 +25,7 @@
 * url : /api/registerUser
 * method : POST
 * url params : name,address,contact
-* success response :
+* success response :  
   -- code : 200  
   -- name successfully registered
   * sample
@@ -40,7 +40,7 @@
 * url :/api/query
 *  method :POST
 *  url params : func,user,array of arguments
-*  success response :
+*  success response :  
    -- code :200  
    -- stored data will be displayed as per query
    - sample 1:  
@@ -66,7 +66,7 @@
 * url :/api/changeowner
 *  method :POST
 *  url params : array of arguments
-   *  success response :
+   *  success response :  
    -- code :200  
    -- successfully registered in the name of new owner
    - sample 1:  
