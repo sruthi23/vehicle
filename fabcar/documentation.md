@@ -2,8 +2,8 @@
 
 -----------
 * url : /api/invoke
-  * method : POST
-  *  url params : carno,make,model,year,vin,plate,engine,owner
+* method : POST
+*  url params : carno,make,model,year,vin,plate,engine,owner
 * success response :  
   -- code : 200   
   -- carno was successfully registered in the name of owner  
@@ -21,8 +21,8 @@
 
 ------------
 * url : /api/registerUser
-  * method : POST
-  * url params : name,address,contact
+* method : POST
+* url params : name,address,contact
 * success response :
   -- code : 200
   -- name successfully registered
@@ -38,14 +38,14 @@
 *  method :POST
 *  url params : func,user,array of arguments
 *  success response :
--- code :200
--- stored data will be displayed as per query
-- sample 1:  
--- arguments :
-*   func : queryCar/queryAllCar
-*	user : varun
-*	data[] : CAR1
--- result : {
+   -- code :200
+   -- stored data will be displayed as per query
+   - sample 1:  
+   -- arguments :
+   *   func : queryCar/queryAllCar
+   *	user : varun
+   *	data[] : CAR1
+   -- result : {
 "res": {
 "VIN": "105",
 "docType": "car",
@@ -62,12 +62,12 @@
 * url :/api/changeowner
 *  method :POST
 *  url params : array of arguments
-*  success response :
--- code :200
--- successfully registered in the name of new owner
-- sample 1:  
--- arguments :
-*	data[]: CAR1
-*	data[] : Anu
+   *  success response :
+   -- code :200
+   -- successfully registered in the name of new owner
+   - sample 1:  
+   -- arguments :
+   *	data[]: CAR1
+   *	data[] : Anu
 
 ----
