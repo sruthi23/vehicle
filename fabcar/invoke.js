@@ -32,8 +32,9 @@ var tx_id = null;
 function registerCar(arg){
 
 // create the key value store as defined in the fabric-client/config/default.json 'key-value-store' setting
-Fabric_Client.newDefaultKeyValueStore({ path: store_path
-}).then((state_store) => {
+return new Promise(function (resolve, reject) {
+	Fabric_Client.newDefaultKeyValueStore({ path: store_path
+	}).then((state_store) => {
 	// assign the store to the fabric client
 	fabric_client.setStateStore(state_store);
 	var crypto_suite = Fabric_Client.newCryptoSuite();
@@ -161,12 +162,15 @@ if (isProposalGood) {
 
 	if(results && results[1] && results[1].event_status === 'VALID') {
 		console.log('Successfully committed the change to the ledger by the peer');
+		
 	} else {
 		console.log('Transaction failed to be committed to the ledger due to ::'+results[1].event_status);
 	}
+}).then(() => {
+	resolve(arg.carno + ' was successfully registered in the name of '+ arg.owner)
 }).catch((err) => {
-	console.error('Failed to invoke successfully :: ' + err);
+	reject(err);
 });
-
+})
 }
 module.exports.registerCar = registerCar;

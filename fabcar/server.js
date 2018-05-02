@@ -29,8 +29,9 @@ router.get('/',function(req, res) {
 
 router.post('/invoke',function(req, res) {	
 
-	createCar.registerCar(req.body);
-	res.json({ res: 'invoke!' });   
+	createCar.registerCar(req.body).then((data) => {
+		res.json({res: data})
+	})
 });
 
 router.post('/registerUser', function(req, res){
@@ -45,6 +46,7 @@ router.post('/query', async function(req,res){
 	var data = await query.allCarDetails(req.body);
 	console.log("Inside server.js "+data);
 	res.json({message:data});
+
 });
 
 // more routes for our API will happen here

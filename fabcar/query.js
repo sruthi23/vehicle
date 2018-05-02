@@ -29,8 +29,9 @@ var tx_id = null;
 
 function allCarDetails(arg){
 // create the key value store as defined in the fabric-client/config/default.json 'key-value-store' setting
-Fabric_Client.newDefaultKeyValueStore({ path: store_path
-}).then((state_store) => {
+return new Promise(function (resolve, reject) {
+	Fabric_Client.newDefaultKeyValueStore({ path: store_path
+	}).then((state_store) => {
 	// assign the store to the fabric client
 	fabric_client.setStateStore(state_store);
 	var crypto_suite = Fabric_Client.newCryptoSuite();
@@ -84,7 +85,13 @@ Fabric_Client.newDefaultKeyValueStore({ path: store_path
 		console.log("No payloads were returned from query");
 	}
 }).catch((err) => {
-	console.error('Failed to query successfully :: ' + err);
-});
+	//console.error('Failed to query successfully :: ' + err);
+	reject(err)
+});.then((query_responses) => {
+	resolve(query_responses[0])
+}).catch((err) => {
+	reject(err)
+})
+})
 }
 module.exports.allCarDetails = allCarDetails;
