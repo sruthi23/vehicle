@@ -21,17 +21,17 @@
 
 ------------
 * url : /api/registerUser
-* method : POST
-* url params : name,address,contact
+  * method : POST
+  * url params : name,address,contact
 * success response :
--- code : 200
--- name successfully registered
-* sample
--- arguments :
-* name : Anu
-* address : SeaShore
-* contact : 9878938603
--- result : { " Anu was successfully registered"}
+  -- code : 200
+  -- name successfully registered
+  * sample
+  -- arguments :
+  * name : Anu
+  * address : SeaShore
+  * contact : 9878938603
+  -- result : { " Anu was successfully registered"}
 
 -----------
 * url :/api/query
