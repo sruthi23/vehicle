@@ -26,7 +26,7 @@
 * method : POST
 * url params : name,address,contact
 * success response :
-  -- code : 200
+  -- code : 200  
   -- name successfully registered
   * sample
   -- arguments :
@@ -41,7 +41,7 @@
 *  method :POST
 *  url params : func,user,array of arguments
 *  success response :
-   -- code :200
+   -- code :200  
    -- stored data will be displayed as per query
    - sample 1:  
    -- arguments :
@@ -67,7 +67,7 @@
 *  method :POST
 *  url params : array of arguments
    *  success response :
-   -- code :200
+   -- code :200  
    -- successfully registered in the name of new owner
    - sample 1:  
    -- arguments :
