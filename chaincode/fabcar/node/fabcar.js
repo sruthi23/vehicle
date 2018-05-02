@@ -63,19 +63,9 @@ let Chaincode = class {
       plate:'KL01',
       Engine:'1.2-litre K Series VVT',
       //color: 'blue',
-      //owner: 'Tomoko'
+      owner: 'Tomoko'
     });
-    cars.push({
-      make: 'Ford',
-      model: 'Mustang',
-      year: '2010',
-      VIN: '105',
-      plate:'KL09',
-      Engine: '1.8-litre K Series VVT'
-     /* color: 'red',
-     owner: 'Brad'*/
-   });
-
+    
     for (let i = 0; i < cars.length; i++) {
       cars[i].docType = 'car';
       await stub.putState('CAR' + i, Buffer.from(JSON.stringify(cars[i])));
@@ -86,7 +76,7 @@ let Chaincode = class {
 
   async createCar(stub, args) {
     console.info('============= START : Create Car ===========');
-    if (args.length != 7) {
+    if (args.length != 8) {
       throw new Error('Incorrect number of arguments.');
     }
 
@@ -97,7 +87,8 @@ let Chaincode = class {
       year: args[3],
       VIN: args[4],
       plate: args[5],
-      engine: args[6]
+      engine: args[6],
+      owner : args[7]
     };
     console.info('----createCar----'+args[0]);
     await stub.putState(args[0], Buffer.from(JSON.stringify(car)));
