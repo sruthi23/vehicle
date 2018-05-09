@@ -74,7 +74,7 @@
    *	data[]: CAR1
    *	data[] : Anu
    
-   ##### 5. History details
+##### 5. History details
 
 * url :/api/history
 *  method : POST
