@@ -10,6 +10,7 @@ var createCar = require('./invoke.js');
 var registerUser = require('./registerUser.js');
 var query = require('./query.js');
 var changeowner = require('./changeowner.js');
+var history = require('./history.js');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -52,6 +53,13 @@ router.post('/query', function(req,res){
 
 router.post('/changeowner',function(req,res){
 	changeowner.changeOwner(req.body).then((data) => {
+		res.json({res: data})
+	})
+
+});
+
+router.post('/history',function(req,res){
+	history.allCarHistory(req.body).then((data) => {
 		res.json({res: data})
 	})
 
