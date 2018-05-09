@@ -30,7 +30,7 @@ let Chaincode = class {
       throw new Error('Received unknown function ' + ret.fcn + ' invocation');
     }
     try {
-      let payload = await method(stub, ret.params);
+      let payload = await method(stub, ret.params, this);
       return shim.success(payload);
     } catch (err) {
       console.log(err);
@@ -140,6 +140,61 @@ let Chaincode = class {
 
     await stub.putState(args[0], Buffer.from(JSON.stringify(car)));
     console.info('============= END : changeCarOwner ===========');
+  }
+
+  async getResults(iterator, isHistory) {
+    let allResults = [];
+    while (true) {
+      let res = await iterator.next();
+
+      if (res.value && res.value.value.toString()) {
+        let jsonRes = {};
+        console.log(res.value.value.toString('utf8'));
+
+        if (isHistory && isHistory === true) {
+          jsonRes.TxId = res.value.tx_id;
+          jsonRes.Timestamp = res.value.timestamp;
+          jsonRes.IsDelete = res.value.is_delete.toString();
+          try {
+            jsonRes.Value = JSON.parse(res.value.value.toString('utf8'));
+          } catch (err) {
+            console.log(err);
+            jsonRes.Value = res.value.value.toString('utf8');
+          }
+        } else {
+          jsonRes.Key = res.value.key;
+          try {
+            jsonRes.Record = JSON.parse(res.value.value.toString('utf8'));
+          } catch (err) {
+            console.log(err);
+            jsonRes.Record = res.value.value.toString('utf8');
+          }
+        }
+        allResults.push(jsonRes);
+      }
+      if (res.done) {
+        console.log('end of data');
+        await iterator.close();
+        console.info(allResults);
+        return allResults;
+        
+      }
+    }
+  }
+
+  async getHistoryForCar(stub,args,thisClass) {
+
+    if (args.length < 1) {
+      throw new Error('Incorrect number of arguments. Expecting 1')
+    }
+    let vin = args[0];
+    console.info('- start getHistoryCar: %s\n', vin);
+
+    let resultsIterator = await stub.getHistoryForKey(vin);
+    let method = thisClass['getResults'];
+    let results = await method(resultsIterator, true);
+
+    return Buffer.from(JSON.stringify(results));
   }
 };
 
