@@ -86,15 +86,11 @@
      "res": [      
       {          
             "TxId": "2188b85c9e6248c58d1a38c2d15a2897c5d3a5e35e2df030b3f430ecf44e4b31",              
-            "Timestamp": {  
-                   "seconds": {  
-                       "low": 1525854695,  
-                       "high": 0,  
-                       "unsigned": false  
+            "Timestamp": {"seconds": {"low": 1525854695,"high": 0,"unsigned": false  
                       },  
-                       "nanos": 484000000  
+                      "nanos": 484000000  
                     },  
-                 "IsDelete": "false",  
+                    "IsDelete": "false",  
                  "Value": {  
                       "docType": "car",  
                       "make": "suzuki",  
