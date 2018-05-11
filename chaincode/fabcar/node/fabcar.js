@@ -196,6 +196,58 @@ let Chaincode = class {
 
     return Buffer.from(JSON.stringify(results));
   }
+
+  async storeActivity(stub, args){
+
+    if (args.length != 3) {
+      throw new Error('Incorrect number of arguments. Expecting 2');
+    }
+
+    let indexName = 'VIN';
+    let cardata = {};
+    cardata.vin = args[0];
+    cardata.type = args[1];
+    cardata.data = args[2];
+    let vinAsIndexKey = await stub.createCompositeKey(indexName,[cardata.vin,cardata.type]);
+
+    await stub.putState(vinAsIndexKey,Buffer.from(JSON.stringify(cardata.data)));
+
+  }
+
+  async getActivity(stub,args,thisClass){
+
+    let vin = args[0];
+    let type = args[1];
+    let iterator = await stub.getStateByPartialCompositeKey('VIN', [type]);
+    
+   //if(args.length == 1){
+   // let iterator = await stub.getStateByPartialCompositeKey('VIN', [vin]);
+    //}
+    let allResults = [];
+    while (true) {
+      let res = await iterator.next();
+
+      if (res.value && res.value.value.toString()) {
+        let jsonRes = {};
+        console.log(res.value.value.toString('utf8'));
+
+        jsonRes.Key = res.value.key;
+        try {
+          jsonRes.Record = JSON.parse(res.value.value.toString('utf8'));
+        } catch (err) {
+          console.log(err);
+          jsonRes.Record = res.value.value.toString('utf8');
+        }
+        allResults.push(jsonRes);
+      }
+      if (res.done) {
+        console.log('end of data');
+        await iterator.close();
+        console.info(allResults);
+        return Buffer.from(JSON.stringify(allResults));
+      }
+    }
+  }
 };
 
 shim.start(new Chaincode());
