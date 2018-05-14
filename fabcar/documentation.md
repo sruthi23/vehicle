@@ -39,7 +39,7 @@
 
 * url :/api/query
 *  method :POST
-*  url params : func,user,array of arguments
+*  url params : func,array of arguments
 *  success response :  
 -- code :200  
 -- stored data will be displayed as per query
@@ -144,7 +144,7 @@
 
 *  url :/api/query
 *  method : POST
-*  url params : vin(vehicle identification number)
+*  url params : func(getActivity),vin(vehicle identification number)
 *  success response :  
 --  code : 200  
 -- result : {res : 'type' was successfully stored for the car of VIN 'vin'}    
