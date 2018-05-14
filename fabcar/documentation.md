@@ -18,7 +18,7 @@
 * plate : kl09
 * engine : L _K-series_ I4 (petrol)
 * owner : Anu  
--- result : CAR1 was successfully registered in the name of Anu
+-- result :`{ res : CAR1 was successfully registered in the name of Anu }`
 
 ##### 2. Register User
 
@@ -33,7 +33,7 @@
 * name : Anu
 * address : SeaShore
 * contact : 9878938603  
--- result : { " Anu was successfully registered"}
+-- result :` { " Anu was successfully registered"}`
 
 ##### 3. Search
 
@@ -48,18 +48,18 @@
 *   func : queryCar/queryAllCar
 *	user : varun
 *	data[] : CAR1  
--- result : {  
+-- result : `{
     "res": {
         "VIN": "105fff",
         "docType": "car",
         "engine": "fghffgh",
         "make": "suzuki",
         "model": "Baleno",
-        "owner": "John",
+        "owner": "Jack",
         "plate": "kl07",
         "year": "2015"
     }
-}
+}`
 
 ##### 4. Change Ownership
 
@@ -81,10 +81,9 @@
 *  url params : vin(vehicle identification number)   
 *   success response :  
 --  code : 200  
--- {
+-- `{
     "res": [  
-   
-             {   
+                {   
                  "TxId": "c6c1aa524fc77118f412816868efbaf394900c194834c8ec4a5d95724adcfe51",   
                  "Timestamp": {   
                           "seconds": {  
@@ -129,7 +128,7 @@
                       }  
           }  
        ]  
-  }
+  }`
 
 
 ##### 6. Record Activity
@@ -149,7 +148,7 @@
 *  success response :  
 --  code : 200  
 -- result : {res : 'type' was successfully stored for the car of VIN 'vin'}    
--- {  
+-- `{  
 "res": [  
 {    
 	"Key": "\u0000VIN\u0000105fff\u0000pressure\u0000",  
@@ -160,5 +159,5 @@
 	"Record": "{value:030}"  
 }  
 ]  
-}  
+}'
 ----
