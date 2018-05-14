@@ -83,52 +83,52 @@
 --  code : 200  
 -- {
     "res":[  
-        {   
-            "TxId": "c6c1aa524fc77118f412816868efbaf394900c194834c8ec4a5d95724adcfe51",   
-            "Timestamp": {   
-                "seconds": {  
-                    "low": 1526274745,  
-                    "high": 0,  
-                    "unsigned": false  
+             {   
+                 "TxId": "c6c1aa524fc77118f412816868efbaf394900c194834c8ec4a5d95724adcfe51",   
+                 "Timestamp": {   
+                          "seconds": {  
+                                   "low": 1526274745,  
+                                   "high": 0,  
+                                   "unsigned": false  
+                                 },  
+                          "nanos": 731000000  
+                   },  
+                 "IsDelete": "false",  
+                 "Value": {  
+                        "docType": "car",  
+                        "make": "suzuki",  
+                        "model": "Baleno",  
+                        "year": "2015",  
+                        "VIN": "105fff",  
+                        "plate": "kl07",  
+                        "engine": "fghffgh",  
+                        "owner": "John"  
+                      }  
+             },  
+          {  
+                "TxId": "2ba194ac05a20c9ea8280e03e1c0a6433a98967530b5854554163a987726197d",  
+                "Timestamp": {  
+                           "seconds": {  
+                           "low": 1526274943,  
+                           "high": 0,  
+                           "unsigned": false  
+                          },  
+                    "nanos": 258000000  
                 },  
-                "nanos": 731000000  
-            },  
-            "IsDelete": "false",  
-            "Value": {  
-                "docType": "car",  
-                "make": "suzuki",  
-                "model": "Baleno",  
-                "year": "2015",  
-                "VIN": "105fff",  
-                "plate": "kl07",  
-                "engine": "fghffgh",  
-                "owner": "John"  
-            }  
-        },  
-        {  
-            "TxId": "2ba194ac05a20c9ea8280e03e1c0a6433a98967530b5854554163a987726197d",  
-            "Timestamp": {  
-                "seconds": {  
-                    "low": 1526274943,  
-                    "high": 0,  
-                    "unsigned": false  
-                },  
-                "nanos": 258000000  
-            },  
-            "IsDelete": "false",  
-            "Value": {  
-                "VIN": "105fff",  
-                "docType": "car",  
-                "engine": "fghffgh",  
-                "make": "suzuki",  
-                "model": "Baleno",  
-                "owner": "Jack",  
-                "plate": "kl07",  
-                "year": "2015"  
-            }  
-        }  
-    ]  
-}  
+                 "IsDelete": "false",  
+                 "Value": {  
+                        "VIN": "105fff",  
+                        "docType": "car",  
+                        "engine": "fghffgh",  
+                        "make": "suzuki",  
+                        "model": "Baleno",  
+                        "owner": "Jack",  
+                        "plate": "kl07",  
+                        "year": "2015"  
+                      }  
+          }  
+       ]  
+  }  
 
 ##### 6. Record Activity
 
