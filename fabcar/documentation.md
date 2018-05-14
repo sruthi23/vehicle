@@ -82,7 +82,8 @@
 *   success response :  
 --  code : 200  
 -- {
-    "res":[  
+    "res": [  
+   
              {   
                  "TxId": "c6c1aa524fc77118f412816868efbaf394900c194834c8ec4a5d95724adcfe51",   
                  "Timestamp": {   
@@ -128,7 +129,8 @@
                       }  
           }  
        ]  
-  }  
+  }
+
 
 ##### 6. Record Activity
 
