@@ -50,15 +50,15 @@
 *	data[] : CAR1  
 -- result : {  
 "res": {  
-"VIN": "105",  
-"docType": "car",  
-"engine": "fghffgh",  
-"make": "suzuki",  
-"model": "Baleno",  
-"owner": "varun",  
-"plate": "kl07",  
-"year": "2015"  
-}  
+        "VIN": "105",  
+        "docType": "car",  
+        "engine": "fghffgh",  
+        "make": "suzuki",  
+        "model": "Baleno",  
+        "owner": "varun",  
+        "plate": "kl07",  
+        "year": "2015"  
+      }  
 }  
 
 ##### 4. Change Ownership
@@ -82,16 +82,15 @@
 *   success response :  
 --  code : 200  
 -- {  
-"res": [  
-{  
+"res":{    
 	"TxId": "2188b85c9e6248c58d1a38c2d15a2897c5d3a5e35e2df030b3f430ecf44e4b31",  
-	"Timestamp": {  
-	"seconds": {  
-	"low": 1525854695,  
-	"high": 0,  
-	"unsigned": false  
-},  
-"nanos": 484000000  
+	"Timestamp": {    
+	"seconds": {    
+	"low": 1525854695,    
+	"high": 0,    
+	"unsigned": false     
+},    
+"nanos": 484000000    
 },  
 "IsDelete": "false",  
 "Value": {  
@@ -113,7 +112,7 @@
 *  url params : vin(vehicle identification number), type, data
 *  success response :  
 --  code : 200  
--- result : {res :'type' was successfully stored for the car of VIN 'vin'}  
+-- result : {  res :'type' was successfully stored for the car of VIN 'vin'  }  
 
 ##### 6. Get Activity Details
 
