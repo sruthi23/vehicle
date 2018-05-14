@@ -50,16 +50,16 @@
 *	data[] : CAR1  
 -- result : {  
     "res": {  
-    &nbsp;  &nbsp;  &nbsp;  &nbsp;  "VIN": "105fff",  
-    &nbsp;  &nbsp;   &nbsp;  &nbsp;  "docType": "car",  
-    &nbsp;  &nbsp;   &nbsp;  &nbsp;  "engine": "fghffgh",  
-    &nbsp;  &nbsp;   &nbsp;  &nbsp;  "make": "suzuki",  
-    &nbsp;  &nbsp;   &nbsp;  &nbsp;  "model": "Baleno",  
-    &nbsp;  &nbsp;   &nbsp;  &nbsp;  "owner": "Jack",  
-    &nbsp;  &nbsp;   &nbsp;  &nbsp;  "plate": "kl07",  
-    &nbsp;  &nbsp;   &nbsp;  &nbsp;  "year": "2015"  
-       &nbsp;  }  
-   &nbsp;  }  
+     "VIN": "105fff",  
+     "docType": "car",  
+     "engine": "fghffgh",  
+     "make": "suzuki",  
+     "model": "Baleno",  
+     "owner": "Jack",  
+     "plate": "kl07",  
+     "year": "2015"  
+      }  
+   }  
 
 ##### 4. Change Ownership
 
@@ -82,17 +82,17 @@
 *   success response :  
 --  code : 200  
 -- {
-&nbsp;  &nbsp;  "res": [  
-&nbsp;  &nbsp;   &nbsp;  {  
-&nbsp;  &nbsp;   &nbsp;  &nbsp;  "TxId": "c6c1aa524fc77118f412816868efbaf394900c194834c8ec4a5d95724adcfe51",   
-&nbsp;  &nbsp;   &nbsp;  &nbsp;  "Timestamp": {   
-&nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp;  "seconds": {  
-&nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp;  "low": 1526274745,  
-&nbsp;  &nbsp;   &nbsp;  &nbsp;  &nbsp;  &nbsp;  "high": 0,  
-&nbsp;  &nbsp;   &nbsp;  &nbsp;   &nbsp;  &nbsp;  "unsigned": false  
-&nbsp;  &nbsp;   &nbsp;  &nbsp;   &nbsp;  &nbsp;  },  
-&nbsp;  &nbsp;   &nbsp;  &nbsp;   &nbsp;  &nbsp;  "nanos": 731000000  
-                              &nbsp;  &nbsp;   &nbsp;  &nbsp;  },  
+"res": [  
+{  
+"TxId": "c6c1aa524fc77118f412816868efbaf394900c194834c8ec4a5d95724adcfe51",   
+"Timestamp": {   
+"seconds": {  
+"low": 1526274745,  
+"high": 0,  
+"unsigned": false  
+},  
+"nanos": 731000000  
+ },  
                   "IsDelete": "false",  
                   "Value": {  
                   "docType": "car",  
