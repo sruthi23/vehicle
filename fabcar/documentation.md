@@ -49,17 +49,17 @@
 *	user : varun
 *	data[] : CAR1  
 -- result : `{  
-        "res": {  
-        "VIN": "105fff",  
-        "docType": "car",  
-        "engine": "fghffgh",  
-        "make": "suzuki",  
-        "model": "Baleno",  
-        "owner": "Jack",  
-        "plate": "kl07",  
-        "year": "2015"  
-      }  
-   }  `
+"res": {  
+"VIN": "105fff",  
+"docType": "car",  
+"engine": "fghffgh",  
+"make": "suzuki",  
+"model": "Baleno",  
+"owner": "Jack",  
+"plate": "kl07",  
+"year": "2015"  
+}  
+}  `
 
 ##### 4. Change Ownership
 
