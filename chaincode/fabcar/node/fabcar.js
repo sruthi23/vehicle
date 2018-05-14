@@ -217,12 +217,11 @@ let Chaincode = class {
   async getActivity(stub,args,thisClass){
 
     let vin = args[0];
-    let type = args[1];
-    let iterator = await stub.getStateByPartialCompositeKey('VIN', [type]);
+    //let type = args[1];
+    //let iterator = await stub.getStateByPartialCompositeKey('VIN', [type]);
     
-   //if(args.length == 1){
-   // let iterator = await stub.getStateByPartialCompositeKey('VIN', [vin]);
-    //}
+    let iterator = await stub.getStateByPartialCompositeKey('VIN', [vin]);
+    
     let allResults = [];
     while (true) {
       let res = await iterator.next();
