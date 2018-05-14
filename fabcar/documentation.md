@@ -17,7 +17,7 @@
 * vin : 105
 * plate : kl09
 * engine : L _K-series_ I4 (petrol)
-* owner : Anu
+* owner : Anu  
 -- result : CAR1 was successfully registered in the name of Anu
 
 ##### 2. Register User
@@ -32,7 +32,7 @@
 -- arguments :
 * name : Anu
 * address : SeaShore
-* contact : 9878938603
+* contact : 9878938603  
 -- result : { " Anu was successfully registered"}
 
 ##### 3. Search
@@ -47,26 +47,25 @@
 -- arguments :
 *   func : queryCar/queryAllCar
 *	user : varun
-*	data[] : CAR1
--- result : {
-"res": {
-"VIN": "105",
-"docType": "car",
-"engine": "fghffgh",
-"make": "suzuki",
-"model": "Baleno",
-"owner": "varun",
-"plate": "kl07",
-"year": "2015"
-}
-}
+*	data[] : CAR1  
+-- result : {  
+"res": {  
+"VIN": "105",  
+"docType": "car",  
+"engine": "fghffgh",  
+"make": "suzuki",  
+"model": "Baleno",  
+"owner": "varun",  
+"plate": "kl07",  
+"year": "2015"  
+}  
+}  
 
 ##### 4. Change Ownership
 
 * url :/api/changeowner
 *  method :POST
-*  url params : array of arguments
-<<<<<<< HEAD
+*  url params : array of arguments  
 *  success response :  
 -- code :200  
 -- successfully registered in the name of new owner
@@ -77,18 +76,22 @@
 
 ##### 5. History details
 
-* url :/api/history
-*  method : POST
-*  url params : vin(vehicle identification number) 
+* url :/api/history  
+*  method : POST  
+*  url params : vin(vehicle identification number)   
 *   success response :  
 --  code : 200  
---  result(sample) : 
+-- {  
+"res": [  
 {  
-	"res": [      
-	{          
-	"TxId": "2188b85c9e6248c58d1a38c2d15a2897c5d3a5e35e2df030b3f430ecf44e4b31",              
-	"Timestamp": {"seconds": {"low": 1525854695,"high": 0,"unsigned": false },  
-	"nanos": 484000000  
+	"TxId": "2188b85c9e6248c58d1a38c2d15a2897c5d3a5e35e2df030b3f430ecf44e4b31",  
+	"Timestamp": {  
+	"seconds": {  
+	"low": 1525854695,  
+	"high": 0,  
+	"unsigned": false  
+},  
+"nanos": 484000000  
 },  
 "IsDelete": "false",  
 "Value": {  
@@ -101,39 +104,7 @@
 "engine": "fghffgh",  
 "owner": "John"  
 }  
-},..  
-}     
->>>>>>> 3bd08fa0fdaa14f516ecafe86eaef6aea24a4a82
-
-* url :/api/history
-*  method : POST
-*  url params : vin(vehicle identification number) 
-*   success response :
---  code : 200
--- {
-"res": [
-{
-	"TxId": "2188b85c9e6248c58d1a38c2d15a2897c5d3a5e35e2df030b3f430ecf44e4b31",
-	"Timestamp": {
-	"seconds": {
-	"low": 1525854695,
-	"high": 0,
-	"unsigned": false
-},
-"nanos": 484000000
-},
-"IsDelete": "false",
-"Value": {
-"docType": "car",
-"make": "suzuki",
-"model": "Baleno",
-"year": "2015",
-"VIN": "105fff",
-"plate": "kl07",
-"engine": "fghffgh",
-"owner": "John"
-}
-},..}
+},..}  
 
 ##### 6. Record Activity
 
