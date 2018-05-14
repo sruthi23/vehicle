@@ -48,18 +48,18 @@
 *   func : queryCar/queryAllCar
 *	user : varun
 *	data[] : CAR1  
--- result : `{
-    "res": {
-        "VIN": "105fff",
-        "docType": "car",
-        "engine": "fghffgh",
-        "make": "suzuki",
-        "model": "Baleno",
-        "owner": "Jack",
-        "plate": "kl07",
-        "year": "2015"
-    }
-}`
+-- result : `{  
+        "res": {  
+        "VIN": "105fff",  
+        "docType": "car",  
+        "engine": "fghffgh",  
+        "make": "suzuki",  
+        "model": "Baleno",  
+        "owner": "Jack",  
+        "plate": "kl07",  
+        "year": "2015"  
+      }  
+   }  `
 
 ##### 4. Change Ownership
 
@@ -82,26 +82,26 @@
 *   success response :  
 --  code : 200  
 -- `{
-    "res": [  
-                {   
+       "res": [  
+          {
                  "TxId": "c6c1aa524fc77118f412816868efbaf394900c194834c8ec4a5d95724adcfe51",   
                  "Timestamp": {   
                           "seconds": {  
                                    "low": 1526274745,  
                                    "high": 0,  
                                    "unsigned": false  
-                                 },  
-                          "nanos": 731000000  
-                   },  
-                 "IsDelete": "false",  
-                 "Value": {  
-                        "docType": "car",  
-                        "make": "suzuki",  
-                        "model": "Baleno",  
-                        "year": "2015",  
-                        "VIN": "105fff",  
-                        "plate": "kl07",  
-                        "engine": "fghffgh",  
+                                     },  
+                               "nanos": 731000000  
+                             },  
+                  "IsDelete": "false",  
+                  "Value": {  
+                  "docType": "car",  
+                  "make": "suzuki",  
+                  "model": "Baleno",  
+                  "year": "2015",  
+                  "VIN": "105fff", 
+                  "plate": "kl07",  
+                  "engine": "fghffgh",  
                         "owner": "John"  
                       }  
              },  
