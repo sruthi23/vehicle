@@ -50,9 +50,9 @@
 *	data[] : CAR1  
 -- result : {  
     "res": {  
-    "VIN": "105fff",  
-    "docType": "car",  
-    "engine": "fghffgh",  
+         "VIN": "105fff",  
+         "docType": "car",  
+         "engine": "fghffgh",  
     "make": "suzuki",  
     "model": "Baleno",  
     "owner": "Jack",  
