@@ -48,18 +48,18 @@
 *   func : queryCar/queryAllCar
 *	user : varun
 *	data[] : CAR1  
--- result : {  
-"res": {  
-        "VIN": "105",  
-        "docType": "car",  
-        "engine": "fghffgh",  
-        "make": "suzuki",  
-        "model": "Baleno",  
-        "owner": "varun",  
-        "plate": "kl07",  
-        "year": "2015"  
-      }  
-}  
+-- {  
+"res": {
+"VIN": "105fff",
+"docType": "car",
+"engine": "fghffgh",
+"make": "suzuki",
+"model": "Baleno",
+"owner": "John",
+"plate": "kl07",
+"year": "2015"
+}
+}
 
 ##### 4. Change Ownership
 
@@ -83,12 +83,12 @@
 --  code : 200  
 -- {  
 "res":{    
-	"TxId": "2188b85c9e6248c58d1a38c2d15a2897c5d3a5e35e2df030b3f430ecf44e4b31",  
-	"Timestamp": {    
-	"seconds": {    
-	"low": 1525854695,    
-	"high": 0,    
-	"unsigned": false     
+"TxId": "2188b85c9e6248c58d1a38c2d15a2897c5d3a5e35e2df030b3f430ecf44e4b31",  
+"Timestamp": {    
+"seconds": {    
+"low": 1525854695,    
+"high": 0,    
+"unsigned": false     
 },    
 "nanos": 484000000    
 },  
@@ -109,7 +109,7 @@
 
 *  url :/api/activity
 *  method : POST
-*  url params : vin(vehicle identification number), type, data
+*  url params : vin(vehicle identification number), timestamp, data{}
 *  success response :  
 --  code : 200  
 -- result : {  res :'type' was successfully stored for the car of VIN 'vin'  }  
@@ -125,13 +125,9 @@
 -- {  
 "res": [  
 {    
-	"Key": "\u0000VIN\u0000105fff\u0000pressure\u0000",  
-	"Record": "{value:010}"  
-},  
-{  
-	"Key": "\u0000VIN\u0000105fff\u0000temperature\u0000",  
-	"Record": "{value:030}"  
-}  
+	"Key": "\u0000VIN\u0000105fff\u00001526449627\u0000",  
+	"Record": "{type:"pressure",value:010}"  
+} 
 ]  
 }  
 ----

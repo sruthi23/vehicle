@@ -208,6 +208,7 @@ let Chaincode = class {
     cardata.vin = args[0];
     cardata.type = args[1];
     cardata.data = args[2];
+
     let vinAsIndexKey = await stub.createCompositeKey(indexName,[cardata.vin,cardata.type]);
 
     await stub.putState(vinAsIndexKey,Buffer.from(JSON.stringify(cardata.data)));
@@ -231,11 +232,14 @@ let Chaincode = class {
         console.log(res.value.value.toString('utf8'));
 
         jsonRes.Key = res.value.key;
+        jsonRes.Timestamp = res.value.timestamp;
         try {
           jsonRes.Record = JSON.parse(res.value.value.toString('utf8'));
+          
         } catch (err) {
           console.log(err);
           jsonRes.Record = res.value.value.toString('utf8');
+          
         }
         allResults.push(jsonRes);
       }
