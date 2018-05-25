@@ -48,20 +48,7 @@
 *   func : queryCar/queryAllCar
 *	user : varun
 *	data[] : CAR1  
-<<<<<<< HEAD
--- {  
-"res": {
-"VIN": "105fff",
-"docType": "car",
-"engine": "fghffgh",
-"make": "suzuki",
-"model": "Baleno",
-"owner": "John",
-"plate": "kl07",
-"year": "2015"
-}
-}
-=======
+
 -- result : {  
 "res": {  
 "VIN": "105fff",  
@@ -74,7 +61,7 @@
 "year": "2015"  
 }  
 }  
->>>>>>> 10fcdb458e1297223826d713c48d32317a53f65f
+
 
 ##### 4. Change Ownership
 
@@ -96,18 +83,7 @@
 *  url params : vin(vehicle identification number)   
 *   success response :  
 --  code : 200  
-<<<<<<< HEAD
--- {  
-"res":{    
-"TxId": "2188b85c9e6248c58d1a38c2d15a2897c5d3a5e35e2df030b3f430ecf44e4b31",  
-"Timestamp": {    
-"seconds": {    
-"low": 1525854695,    
-"high": 0,    
-"unsigned": false     
-},    
-"nanos": 484000000    
-=======
+
 -- {
 "res": [  
 {  
@@ -117,7 +93,7 @@
 	"low": 1526274745,  
 	"high": 0,  
 	"unsigned": false  
-	>>>>>>> 10fcdb458e1297223826d713c48d32317a53f65f
+	
 },  
 "nanos": 731000000  
 },  

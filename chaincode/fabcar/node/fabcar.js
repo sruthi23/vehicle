@@ -55,16 +55,26 @@ let Chaincode = class {
   async initLedger(stub, args) {
     console.info('============= START : Initialize Ledger ===========');
     let cars = [];
+    /*var services = args['data'].serviceSchedule;
+
+    Object.keys(services).forEach(function(key) {
+      var val = services[key];
+      services[key]['points'] = 300;
+    });*/
+
     cars.push({
       make: 'Maruti',
       model: 'Dzire',
-      year:'2008',
-      VIN:'101',
-      plate:'KL01',
-      Engine:'1.2-litre K Series VVT',
+      chasisno: 'TD23FERTS34DF',
+      date: '2527235154' ,
+      VIN:'Z4SD23FERTS34DF',
+      //plate:'KL01',
+      //Engine:'1.2-litre K Series VVT',
       //color: 'blue',
-      owner: 'Tomoko'
-    });
+     // owner: 'Tomoko',
+     services:[{"name":"service1","scheduled":1000,"actual":1000,"status":0,"point":500}],
+     replacement:{"part1":[{"scheduled":20000,"actual":20000,"status":0,"point":500}]}
+   });
     
     for (let i = 0; i < cars.length; i++) {
       cars[i].docType = 'car';
@@ -76,22 +86,37 @@ let Chaincode = class {
 
   async createCar(stub, args) {
     console.info('============= START : Create Car ===========');
-    if (args.length != 8) {
+    /*if (args.length != 1) {
       throw new Error('Incorrect number of arguments.');
-    }
+    }*/
+
+    var services = args.serviceSchedule;
+
+    /*Object.keys(services).forEach(function(key) {
+      var val = services[key];
+      if(val.scheduled >= val.actual){
+        services[key]['points'] = 500;
+      }
+      
+    });*/
+
 
     var car = {
       docType: 'car',
-      make: args[1],
-      model: args[2],
-      year: args[3],
-      VIN: args[4],
-      plate: args[5],
-      engine: args[6],
-      owner : args[7]
+      make: args.make,
+      model: args.modal,
+      chasisno: args.chasisno,
+      date: args.date,
+      VIN: args.VIN,
+      //plate: args[5],
+      //engine: args[6],
+      //owner : args[7],
+      //saledate:args[8],
+      services:args.serviceSchedule,
+      replacement:args.replacement
     };
     console.info('----createCar----'+args[0]);
-    await stub.putState(args[0], Buffer.from(JSON.stringify(car)));
+    await stub.putState('CAR1', Buffer.from(JSON.stringify(car)));
     console.info('============= END : Create Car ===========');
   }
 
@@ -250,6 +275,11 @@ let Chaincode = class {
         return Buffer.from(JSON.stringify(allResults));
       }
     }
+  }
+
+  async makePoint(stub,args){
+
+
   }
 };
 

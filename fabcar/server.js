@@ -32,10 +32,12 @@ router.get('/',function(req, res) {
 
 router.post('/invoke',function(req, res) {	
 
-	req.body.carno = req.body.vin;
-	createCar.registerCar(req.body).then((data) => {
-		res.json({res: data})
-	})
+	//req.body.carno = req.body.vin;
+//JSON.parse(req.body)
+console.log(req.body);
+createCar.registerCar(JSON.parse(req.body.data)).then((data) => {
+	res.json({res: data})
+})
 });
 
 router.post('/registerUser', function(req, res){

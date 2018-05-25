@@ -66,8 +66,8 @@ return new Promise(function (resolve, reject) {
 		//targets: let default to the peer assigned to the client
 		chaincodeId: 'fabcar',
 		fcn: 'createCar',
-		args: [arg.carno,arg.make,arg.model,arg.year,arg.vin,arg.plate,arg.engine,arg.owner],
-		chainId: 'mychannel',
+		args: arg,
+		chainId: 'mychannel', 
 		txId: tx_id
 	};
 
@@ -167,7 +167,7 @@ if (isProposalGood) {
 		console.log('Transaction failed to be committed to the ledger due to ::'+results[1].event_status);
 	}
 }).then(() => {
-	resolve(arg.carno + ' was successfully registered in the name of '+ arg.owner)
+	resolve( "successfully registered")
 }).catch((err) => {
 	reject(err);
 });
