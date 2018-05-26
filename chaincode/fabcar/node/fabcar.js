@@ -86,28 +86,31 @@ let Chaincode = class {
 
   async createCar(stub, args) {
     console.info('============= START : Create Car ===========');
+
+    //var k = {"make":"Nissan","modal":"Terrano","chasisno":"SD23FERTS34DF","date":"1527235154","VIN":"X4SD23FERTS34DF","serviceSchedule":[{"service_1":{"schedule":2000,"date":"1527235154","actual":2000},"service_2":{"schedule":3000,"date":"1527235154","actual":3400}}],"replacement":[{"part_1":[{"schedule":2000,"date":"1527235154","actual":2000},{"schedule":2000,"date":"1527235154","actual":2000}]},{"part_2":[{"schedule":2000,"date":"1527235154","actual":2000}]}]} ;
+
     /*if (args.length != 1) {
       throw new Error('Incorrect number of arguments.');
     }*/
+/*
+    var services = k.serviceSchedule;
 
-    var services = args.serviceSchedule;
-
-    /*Object.keys(services).forEach(function(key) {
+    Object.keys(services).forEach(function(key) {
       var val = services[key];
       if(val.scheduled >= val.actual){
-        services[key]['points'] = 500;
-      }
-      
-    });*/
+       val.points = 500;
+     }
 
+   });
+   */
 
-    var car = {
-      docType: 'car',
-      make: args.make,
-      model: args.modal,
-      chasisno: args.chasisno,
-      date: args.date,
-      VIN: args.VIN,
+   var car = {
+    docType: 'car',
+    make: args.make,
+    model: args.modal,
+    chasisno: args.chasisno,
+    date: args.date,
+    VIN: args.VIN,
       //plate: args[5],
       //engine: args[6],
       //owner : args[7],
@@ -116,7 +119,7 @@ let Chaincode = class {
       replacement:args.replacement
     };
     console.info('----createCar----'+args[0]);
-    await stub.putState('CAR1', Buffer.from(JSON.stringify(car)));
+    await stub.putState(args.VIN, Buffer.from(JSON.stringify(car)));
     console.info('============= END : Create Car ===========');
   }
 

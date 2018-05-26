@@ -32,12 +32,33 @@ router.get('/',function(req, res) {
 
 router.post('/invoke',function(req, res) {	
 
-	//req.body.carno = req.body.vin;
-//JSON.parse(req.body)
-console.log(req.body);
-createCar.registerCar(JSON.parse(req.body.data)).then((data) => {
-	res.json({res: data})
-})
+	var k = {"make":"Nissan","modal":"Terrano","chasisno":"SD23FERTS34DF","date":"1527235154","VIN":"X4SD23FERTS34DF","serviceSchedule":[{"service_1":{"schedule":2000,"date":"1527235154","actual":2000},"service_2":{"schedule":3000,"date":"1527235154","actual":3400}}],"replacement":[{"part_1":[{"schedule":2000,"date":"1527235154","actual":2000},{"schedule":2000,"date":"1527235154","actual":2000}]},{"part_2":[{"schedule":2000,"date":"1527235154","actual":2000}]}]} ;
+	var services = k["serviceSchedule"];
+	var replacement = k["replacement"];
+	console.log(services);
+	k = JSON.stringify(k);
+	//const k = "{\"key\":\"value\"}";
+	for(i in services)
+	{
+		for( s in services[i]){
+
+			//console.log(services[i][s]);
+			var v = services[i][s];
+			if(v.schedule >= v.actual)
+				v["points"] = 500;
+			else
+				v["points"] = 400;
+			
+		}
+	}
+
+	k["serviceSchedule"] = services;
+	console.log(k);
+
+	console.log("replacement"+replacement);
+			/*	createCar.registerCar(k).then((data) => {
+		res.json({res: data})
+	})*/
 });
 
 router.post('/registerUser', function(req, res){
