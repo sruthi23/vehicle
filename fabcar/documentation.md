@@ -22,7 +22,11 @@
 *   func : queryCar
 *	data[] : VIN  
 
--- result : {
+-- result :
+
+```
+
+{  
 "res": {
 "VIN": "X4SD23FERTS34DF",
 "chasisno": "SD23FERTS34DF",
@@ -67,6 +71,4 @@
 ]
 }
 }
-
-
-----
+```
