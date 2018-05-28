@@ -32,9 +32,9 @@
 "make": "Nissan",
 "model": "Terrano",
 "points": 2000,
-"replacement": [
-{
-	"part_1": [
+"replacement": [  
+    {  
+        "part_1": [
 	{
 	"actual": 2000,
 	"date": "1527235154",
