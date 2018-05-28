@@ -12,6 +12,10 @@ var query = require('./query.js');
 var changeowner = require('./changeowner.js');
 var history = require('./history.js');
 var activity = require('./activity.js');
+var pointInfo = require('./points-info.json');
+var serviceinfo = pointInfo[0];
+var replaceinfo = pointInfo[1];
+console.log(replaceinfo)
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -37,20 +41,33 @@ router.post('/invoke',function(req, res) {
 	var gpoints=k.points;
 	var services = k["serviceSchedule"];
 	var replacement = k["replacement"];
-	console.log(services);
+	//console.log(services);
 
 	for(i in services)
 	{
 		for( s in services[i]){
 
 			var v = services[i][s];
+			var temp = (((v.schedule)*10)/100);
+			var deviation = temp+v.schedule;
 			if(v.schedule >= v.actual){
-				services[i][s]["points"] = 500;
+				console.log(serviceinfo[s]);
+				services[i][s]["points"] = serviceinfo[s][0];
 				gpoints += services[i][s]["points"];
+				services[i][s]["status"] = 0;
+			}
+			else if(v.actual>v.schedule&&v.actual<=deviation){
+
+				services[i][s]["points"] = serviceinfo[s][1];
+				gpoints += services[i][s]["points"];
+				services[i][s]["status"] = 1;
+
 			}
 			else{
-				services[i][s]["points"] = 400;
-				gpoints += services[i][s]["points"];
+				services[i][s]["points"] = serviceinfo[s][2];
+				gpoints += services[i][s]["points"];	
+				services[i][s]["status"] = 2;
+
 			}
 		}
 	}
@@ -63,14 +80,29 @@ router.post('/invoke',function(req, res) {
 		{
 			for( s in replacement[i][parts]){
 
+				console.log("replacement_"+ (parseInt(s)+1),replaceinfo["replacement_"+ (s+1)])
+
+
 				var v = replacement[i][parts][s];
+				var temp = (((v.schedule)*10)/100);
+				var deviation = temp+v.schedule;
 				if(v.schedule >= v.actual){
-					replacement[i][parts][s]["points"] = 500;
+					replacement[i][parts][s]["points"] = replaceinfo["replacement_"+ (parseInt(s)+1)][0];
 					gpoints += replacement[i][parts][s]["points"];
+					replacement[i][parts][s]["status"] = 0;
+
+				}
+				else if(v.actual>v.schedule&&v.actual<=deviation){
+					replacement[i][parts][s]["points"]= replaceinfo["replacement_"+ (parseInt(s)+1)][1];
+					gpoints += replacement[i][parts][s]["points"];
+					replacement[i][parts][s]["status"] = 1;
+
 				}
 				else{
-					replacement[i][parts][s]["points"]= 400;
-					gpoints += replacement[i][parts][s]["points"];
+					services[i][s]["points"] = replaceinfo["replacement_"+ (parseInt(s)+1)][2];
+					gpoints += services[i][s]["points"];	
+					replacement[i][parts][s]["status"] = 2;
+
 				}
 			}
 		}
