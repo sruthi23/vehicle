@@ -62,11 +62,12 @@ return new Promise(function (resolve, reject) {
 	// changeCarOwner chaincode function - requires 2 args , ex: args: ['CAR10', 'Dave'],
 	// must send the proposal to endorsing peers
 
+
 	var request = {
 		//targets: let default to the peer assigned to the client
 		chaincodeId: 'fabcar',
 		fcn: 'createCar',
-		args: arg,
+		args: [arg],
 		chainId: 'mychannel', 
 		txId: tx_id
 	};

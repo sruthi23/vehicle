@@ -55,25 +55,21 @@ let Chaincode = class {
   async initLedger(stub, args) {
     console.info('============= START : Initialize Ledger ===========');
     let cars = [];
-    /*var services = args['data'].serviceSchedule;
-
-    Object.keys(services).forEach(function(key) {
-      var val = services[key];
-      services[key]['points'] = 300;
-    });*/
-
     cars.push({
       make: 'Maruti',
       model: 'Dzire',
       chasisno: 'TD23FERTS34DF',
       date: '2527235154' ,
       VIN:'Z4SD23FERTS34DF',
+      points:2000,
       //plate:'KL01',
       //Engine:'1.2-litre K Series VVT',
       //color: 'blue',
      // owner: 'Tomoko',
      services:[{"name":"service1","scheduled":1000,"actual":1000,"status":0,"point":500}],
-     replacement:{"part1":[{"scheduled":20000,"actual":20000,"status":0,"point":500}]}
+     replacement:{"part1":[{"scheduled":20000,"actual":20000,"status":0,"point":500}]},
+     grandpoints :'3000'
+
    });
     
     for (let i = 0; i < cars.length; i++) {
@@ -85,41 +81,31 @@ let Chaincode = class {
   }
 
   async createCar(stub, args) {
-    console.info('============= START : Create Car ===========');
-
-    //var k = {"make":"Nissan","modal":"Terrano","chasisno":"SD23FERTS34DF","date":"1527235154","VIN":"X4SD23FERTS34DF","serviceSchedule":[{"service_1":{"schedule":2000,"date":"1527235154","actual":2000},"service_2":{"schedule":3000,"date":"1527235154","actual":3400}}],"replacement":[{"part_1":[{"schedule":2000,"date":"1527235154","actual":2000},{"schedule":2000,"date":"1527235154","actual":2000}]},{"part_2":[{"schedule":2000,"date":"1527235154","actual":2000}]}]} ;
+    console.info('============= START : Create Car ===========', args);
 
     /*if (args.length != 1) {
-      throw new Error('Incorrect number of arguments.');
+      throw new Error('Incorrect number of arguments...................');
     }*/
-/*
-    var services = k.serviceSchedule;
 
-    Object.keys(services).forEach(function(key) {
-      var val = services[key];
-      if(val.scheduled >= val.actual){
-       val.points = 500;
-     }
-
-   });
-   */
-
-   var car = {
-    docType: 'car',
-    make: args.make,
-    model: args.modal,
-    chasisno: args.chasisno,
-    date: args.date,
-    VIN: args.VIN,
+    var data = JSON.parse(args[0])
+    var car = {
+      docType: 'car',
+      make: data.make,
+      model: data.modal,
+      chasisno: data.chasisno,
+      date: data.date,
+      VIN: data.VIN,
+      points:data.points,
       //plate: args[5],
       //engine: args[6],
       //owner : args[7],
       //saledate:args[8],
-      services:args.serviceSchedule,
-      replacement:args.replacement
+      services:data.serviceSchedule,
+      replacement:data.replacement,
+      grandpoints : data.gpoints
     };
     console.info('----createCar----'+args[0]);
-    await stub.putState(args.VIN, Buffer.from(JSON.stringify(car)));
+    await stub.putState(data.VIN, Buffer.from(JSON.stringify(car)));
     console.info('============= END : Create Car ===========');
   }
 

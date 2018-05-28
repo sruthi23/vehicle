@@ -32,40 +32,54 @@ router.get('/',function(req, res) {
 
 router.post('/invoke',function(req, res) {	
 
-	var k = {"make":"Nissan","modal":"Terrano","chasisno":"SD23FERTS34DF","date":"1527235154","VIN":"X4SD23FERTS34DF","serviceSchedule":[{"service_1":{"schedule":2000,"date":"1527235154","actual":2000},"service_2":{"schedule":3000,"date":"1527235154","actual":3400}}],"replacement":[{"part_1":[{"schedule":2000,"date":"1527235154","actual":2000},{"schedule":2000,"date":"1527235154","actual":2000}]},{"part_2":[{"schedule":2000,"date":"1527235154","actual":2000}]}]} ;
+	//var k = {"make":"Nissan","modal":"Terrano","chasisno":"SD23FERTS34DF","date":"1527235154","VIN":"X4SD23FERTS34DF","serviceSchedule":[{"service_1":{"schedule":2000,"date":"1527235154","actual":2000},"service_2":{"schedule":3000,"date":"1527235154","actual":3400}}],"replacement":[{"part_1":[{"schedule":2000,"date":"1527235154","actual":2000},{"schedule":2000,"date":"1527235154","actual":2000}]},{"part_2":[{"schedule":2000,"date":"1527235154","actual":2000}]}]} ;
+	var k = JSON.parse(req.body.data);
+	var gpoints=k.points;
 	var services = k["serviceSchedule"];
 	var replacement = k["replacement"];
 	console.log(services);
-	k = JSON.stringify(k);
-	//const k = "{\"key\":\"value\"}";
+
 	for(i in services)
 	{
 		for( s in services[i]){
 
-			//console.log(services[i][s]);
 			var v = services[i][s];
-			if(v.schedule >= v.actual)
-				v["points"] = 500;
-			else
-				v["points"] = 400;
-			
+			if(v.schedule >= v.actual){
+				services[i][s]["points"] = 500;
+				gpoints += services[i][s]["points"];
+			}
+			else{
+				services[i][s]["points"] = 400;
+				gpoints += services[i][s]["points"];
+			}
 		}
 	}
 
-	k["serviceSchedule"] = services;
-	console.log(k);
+	console.log("####updated####", k["serviceSchedule"]);
+	console.log("####services####", services);
+	var j = replacement.length;
+	for(i=0;i<j;i++){
+		for(parts in replacement[i])
+		{
+			for( s in replacement[i][parts]){
 
-	console.log("replacement"+replacement);
-			/*	createCar.registerCar(k).then((data) => {
-		res.json({res: data})
-	})*/
-});
+				var v = replacement[i][parts][s];
+				if(v.schedule >= v.actual){
+					replacement[i][parts][s]["points"] = 500;
+					gpoints += replacement[i][parts][s]["points"];
+				}
+				else{
+					replacement[i][parts][s]["points"]= 400;
+					gpoints += replacement[i][parts][s]["points"];
+				}
+			}
+		}
+	}
 
-router.post('/registerUser', function(req, res){
-	registerUser.registerNewUser(req.body).then((data) => {
+	k["gpoints"] = gpoints;
+	createCar.registerCar(JSON.stringify(k)).then((data) => {
 		res.json({res: data})
 	})
-
 });
 
 router.post('/query', function(req,res){
@@ -75,26 +89,6 @@ router.post('/query', function(req,res){
 
 });
 
-router.post('/changeowner',function(req,res){
-	changeowner.changeOwner(req.body).then((data) => {
-		res.json({res: data})
-	})
-
-});
-
-router.post('/history',function(req,res){
-	history.allCarHistory(req.body).then((data) => {
-		res.json({res: data})
-	})
-
-});
-
-router.post('/activity',function(req,res){
-	activity.activityDetails(req.body).then((data) => {
-		res.json({res: data})
-	})
-
-});
 // more routes for our API will happen here
 
 // REGISTER OUR ROUTES -------------------------------
