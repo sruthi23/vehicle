@@ -26,49 +26,48 @@
 
 ```
 
-{  
-"res": {
-"VIN": "X4SD23FERTS34DF",
-"chasisno": "SD23FERTS34DF",
-"date": "1527235154",
-"docType": "car",
-"grandpoints": 4400,
-"make": "Nissan",
-"model": "Terrano",
-"points": 2000,
-"replacement": [  
-    {  
-        "part_1": [
-	{
-	"actual": 2000,
+{
+	"VIN": "X4SD23FERTS34DF",
+	"chasisno": "SD23FERTS34DF",
 	"date": "1527235154",
-	"points": 500,
-	"schedule": 2000
-},..
+	"docType": "car",
+	"grandpoints": 4400,
+	"make": "Nissan",
+	"model": "Terrano",
+	"points": 2000,
+	"replacement": [
+		{
+			"part_1": [
+				{
+					"actual": 2000,
+					"date": "1527235154",
+					"points": 500,
+					"schedule": 2000
+				}
 
-]
-},
-{
-	"part_2": [
-	{
-	"actual": 2000,
-	"date": "1527235154",
-	"points": 500,
-	"schedule": 2000
-},..
-]
-}
-],
-"services": [
-{
-	"service_1": {
-	"actual": 2000,
-	"date": "1527235154",
-	"points": 500,
-	"schedule": 2000
-},..     
-}
-]
+			]
+		},
+		{
+			"part_2": [
+				{
+					"actual": 2000,
+					"date": "1527235154",
+					"points": 500,
+					"schedule": 2000
+				}
+			]
+		}
+	],
+	"services": [
+		{
+			"service_1": {
+				"actual": 2000,
+				"date": "1527235154",
+				"points": 500,
+				"schedule": 2000
+			} 
+		}
+	]
 }
 }
 ```
