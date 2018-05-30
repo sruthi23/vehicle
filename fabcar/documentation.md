@@ -2,7 +2,7 @@
 
 ##### 1. Vehicle Registration
 
-* url : /api/invoke
+* url : http://ec2-54-191-119-86.us-west-2.compute.amazonaws.com/api/invoke
 * method : POST
 *  url params : data{}
 * success response :  
@@ -11,7 +11,7 @@
 
 ##### 2. Search
 
-* url :/api/query
+* url :http://ec2-54-191-119-86.us-west-2.compute.amazonaws.com/api/query
 *  method :POST
 *  url params : func,array of arguments
 *  success response :  
@@ -36,38 +36,38 @@
 	"model": "Terrano",
 	"points": 2000,
 	"replacement": [
-		{
-			"part_1": [
-				{
-					"actual": 2000,
-					"date": "1527235154",
-					"points": 500,
-					"schedule": 2000
-				}
+	{
+	"part_1": [
+	{
+	"actual": 2000,
+	"date": "1527235154",
+	"points": 500,
+	"schedule": 2000
+}
 
-			]
-		},
-		{
-			"part_2": [
-				{
-					"actual": 2000,
-					"date": "1527235154",
-					"points": 500,
-					"schedule": 2000
-				}
-			]
-		}
-	],
-	"services": [
-		{
-			"service_1": {
-				"actual": 2000,
-				"date": "1527235154",
-				"points": 500,
-				"schedule": 2000
-			} 
-		}
-	]
+]
+},
+{
+	"part_2": [
+	{
+	"actual": 2000,
+	"date": "1527235154",
+	"points": 500,
+	"schedule": 2000
+}
+]
+}
+],
+"services": [
+{
+	"service_1": {
+	"actual": 2000,
+	"date": "1527235154",
+	"points": 500,
+	"schedule": 2000
+} 
+}
+]
 }
 }
 ```
