@@ -71,6 +71,7 @@ return new Promise(function (resolve, reject) {
 	if (query_responses && query_responses.length == 1) {
 		if (query_responses[0] instanceof Error) {
 			console.error("error from query = ", query_responses[0]);
+			resolve("VIN not found");
 		} else {
 
 			var response = [];
@@ -81,13 +82,16 @@ return new Promise(function (resolve, reject) {
 			response = response.toString('utf8');
 			response = JSON.parse(response);
 			resolve(response);		
+			
 
 		}
 	} else {
 		console.log("No payloads were returned from query");
+
 	}
 }).catch((err) => {
 	reject(err)
+	
 })
 })
 }

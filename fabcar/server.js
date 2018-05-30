@@ -3,16 +3,13 @@
 // =============================================================================
 
 // call the packages we need
+
 var express = require('express')        // call express
-var app = express()                 // define our app using express
-var path = require('path')
+var app = express()
+var path = require('path')               // define our app using express
 var bodyParser = require('body-parser')
 var createCar = require('./invoke.js')
-var registerUser = require('./registerUser.js')
 var query = require('./query.js')
-var changeowner = require('./changeowner.js')
-var history = require('./history.js')
-var activity = require('./activity.js')
 var pointInfo = require('./points-info.json')
 var serviceinfo = pointInfo[0]
 var replaceinfo = pointInfo[1]
