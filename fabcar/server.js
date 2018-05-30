@@ -66,35 +66,47 @@ router.post('/invoke', function (req, res) {
   console.log('####updated####', k['serviceSchedule'])
   console.log('####services####', services)
   var j = replacement.length
+  console.log("#####",j);
   for (i = 0; i < j; i++) {
     for (parts in replacement[i])		{
-      for (s in replacement[i][parts]) {
-        console.log('replacement_' + (parseInt(s) + 1), replaceinfo['replacement_' + (s + 1)])
+     console.log("#####parts",parts);
+     for (s in replacement[i][parts]) {
+      console.log("#####parts####",s);
 
-        var v = replacement[i][parts][s]
-        var temp = (((v.schedule) * 10) / 100)
-        var deviation = temp + v.schedule
-        if (v.schedule >= v.actual) {
-          replacement[i][parts][s]['points'] = replaceinfo['replacement_' + (parseInt(s) + 1)][0]
-          gpoints += replacement[i][parts][s]['points']
-          replacement[i][parts][s]['status'] = 0
-        } else if (v.actual > v.schedule && v.actual <= deviation) {
-          replacement[i][parts][s]['points'] = replaceinfo['replacement_' + (parseInt(s) + 1)][1]
-          gpoints += replacement[i][parts][s]['points']
-          replacement[i][parts][s]['status'] = 1
-        } else {
-          services[i][s]['points'] = replaceinfo['replacement_' + (parseInt(s) + 1)][2]
-          gpoints += services[i][s]['points']
-          replacement[i][parts][s]['status'] = 2
-        }
+      console.log('replacement_' + (parseInt(s) + 1), replaceinfo['replacement_' + (s + 1)])
+
+      var v = replacement[i][parts][s]
+      console.log("####v####",v);
+      var temp = (((v.schedule) * 10) / 100)
+      console.log("####temp####",temp);
+
+      var deviation = temp + v.schedule
+      console.log("####deviation####",deviation);
+
+      if (v.schedule >= v.actual) {
+        console.log("####schedule####",replacement[i][parts][s]);
+        //replacement[i][parts][s]['points'] = replaceinfo['replacement_' + (parseInt(s) + 1)][0]
+        replacement[i][parts][s]['points']=replaceinfo['replacement_' + (parseInt(s) + 1)][0];
+        gpoints += replacement[i][parts][s]['points']
+        replacement[i][parts][s]['status'] = 0
+      } else if (v.actual > v.schedule && v.actual <= deviation) {
+        //replacement[i][parts][s]['points'] = replaceinfo['replacement_' + (parseInt(s) + 1)][1]
+        replacement[i][parts][s]['points']=replaceinfo['replacement_' + (parseInt(s) + 1)][1];
+        gpoints += replacement[i][parts][s]['points']
+        replacement[i][parts][s]['status'] = 1
+      }else {
+        replacement[i][parts][s]['points']=replaceinfo['replacement_' + (parseInt(s) + 1)][0];
+        gpoints += replacement[i][parts][s]['points']
+        replacement[i][parts][s]['status'] = 2
       }
     }
   }
+}
 
-  k['gpoints'] = gpoints
-  createCar.registerCar(JSON.stringify(k)).then((data) => {
-    res.json({res: data})
-  })
+k['gpoints'] = gpoints
+createCar.registerCar(JSON.stringify(k)).then((data) => {
+  res.json({res: data})
+})
 })
 
 router.post('/query', function (req, res) {
