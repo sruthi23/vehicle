@@ -2,7 +2,7 @@
 
 ##### 1. Vehicle Registration
 
-* url : http://ec2-54-191-119-86.us-west-2.compute.amazonaws.com/api/invoke
+* url : http://ec2-54-191-119-86.us-west-2.compute.amazonaws.com:8081/api/invoke
 * method : POST
 *  url params : data{}
 * success response :  
@@ -11,7 +11,7 @@
 
 ##### 2. Search
 
-* url :http://ec2-54-191-119-86.us-west-2.compute.amazonaws.com/api/query
+* url :http://ec2-54-191-119-86.us-west-2.compute.amazonaws.com:8081/api/query
 *  method :POST
 *  url params : func,array of arguments
 *  success response :  
