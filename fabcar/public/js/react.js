@@ -3,15 +3,24 @@ class Greeting extends React.Component {
     super(props);
 
     this.state = {
-      data: []
+      data: [],
+      query: ''
     };
   }
 
-  componentDidMount() {
+  handleInputChange = e => {
+    e.preventDefault();
+    this.setState({
+      query: this.search.value
+    });
+  };
+
+  componentDidUpdate() {
     var args = {
       func: 'queryCar',
-      'data[]': 'X4SD23FERTS34DF'
+      'data[]': this.state.query
     };
+    console.log(args);
 
     var formBody = [];
     for (var property in args) {
@@ -36,7 +45,7 @@ class Greeting extends React.Component {
   }
 
   render() {
-    console.log(this.state.data);
+    console.log(this.state);
     const statusName = ['On time', '10% Deviation', '11% to 25% Deviation'];
     const { data } = this.state;
 
@@ -103,6 +112,24 @@ class Greeting extends React.Component {
     {
       return (
         <div>
+          <div className="ui form">
+            <div className="two fields">
+              <div className="field">
+                <input
+                  placeholder="Enter VIN ..."
+                  ref={input => (this.search = input)}
+                />
+              </div>
+
+              <div className="field">
+                <button
+                  className="ui submit button"
+                  onClick={this.handleInputChange}>
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
           <h1>
             {data.make} {data.model}
           </h1>
