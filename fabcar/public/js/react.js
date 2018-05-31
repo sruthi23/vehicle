@@ -10,17 +10,21 @@ class Greeting extends React.Component {
 
   handleInputChange = e => {
     e.preventDefault();
-    this.setState({
-      query: this.search.value
-    });
+    this.setState(
+      {
+        query: this.search.value
+      },
+      () => {
+        this.requestData();
+      }
+    );
   };
 
-  componentDidUpdate() {
+  requestData() {
     var args = {
       func: 'queryCar',
       'data[]': this.state.query
     };
-    console.log(args);
 
     var formBody = [];
     for (var property in args) {
