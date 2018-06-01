@@ -8,6 +8,10 @@ class Greeting extends React.Component {
     };
   }
 
+  componentDidMount(){
+    $('.menu .item').tab()
+  }
+
   handleInputChange = e => {
     e.preventDefault();
     this.setState(

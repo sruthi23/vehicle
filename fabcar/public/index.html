@@ -15,7 +15,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js" integrity="sha256-RKNmL9+6j/3jB72OcIg8OQr91Bi4OgFPnKQOFS1O+fo=" crossorigin="anonymous"></script>
-  <script src='js/react.js' type="text/babel" defer></script>
+  <script src='js/react.js' type="text/babel"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -53,43 +53,7 @@ Admin <i class="dropdown icon"></i>
 
 
           <div id="root">
-            <div className="ui cards" id="blocks">
-              <div className="ui top attached tabular menu">
-                <a className="item active" data-tab="first">
-                  Service Reports
-                </a>
-                <a className="item" data-tab="second">
-                  Part Replacements
-                </a>
-              </div>
-              <div className="ui bottom attached tab segment active" data-tab="first">
-                <table className="ui fixed single line celled table">
-                  <thead>
-                    <tr>
-                      <th>Service Schedule</th>
-                      <th>Scheduled </th>
-                      <th>Actual </th>
-                      <th>Points</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                </table>
-              </div>
-              <div className="ui bottom attached tab segment" data-tab="second">
-                <table className="ui fixed single line celled table">
-                  <thead>
-                    <tr>
-                      <th>Part Replacement</th>
-                      <th>Date</th>
-                      <th>Scheduled Replacement</th>
-                      <th>Actual</th>
-                      <th>Points</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                </table>
-              </div>
-            </div>
+
           </div>
 
 
@@ -118,7 +82,6 @@ Admin <i class="dropdown icon"></i>
     </div>
   </div>
 
-  <script type="text/javascript" src='js/script.js'></script>
 
 </body>
 
