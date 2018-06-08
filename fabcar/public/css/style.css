@@ -117,3 +117,16 @@ p.ui.text {
   background: #ed3833;
 }
 
+.icon-green {
+  color: #50b051;
+}
+.icon-blue {
+  color: #fef851;
+}
+.icon-red {
+  color: #ed3833;
+}
+
+i.icon{
+  font-size: 2em
+}
