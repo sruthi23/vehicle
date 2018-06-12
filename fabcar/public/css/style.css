@@ -130,3 +130,5 @@ p.ui.text {
 i.icon{
   font-size: 2em
 }
+
+.ui.noborder.table tr td { border-top: 0px !important; }

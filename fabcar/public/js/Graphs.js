@@ -111,51 +111,40 @@ class Graphs extends React.Component {
         </div>
       </div>
 
-        <table className='ui very basic collapsing celled table'>
+      {data.replacement && 
+        <table className='ui noborder very basic collapsing celled table'>
           <tbody>
             <tr>
-              <th>Life @ Nissan:: Service </th>
+              <th><h3 className="ui header">Life @ Nissan:: Service </h3></th>
               <td>{rows}</td>
             </tr>
             <tr>
-              <th>Life @ Nissan:: Part Replacement </th>
-              <td><i className='circle icon icon-green' />
-                <i className='circle icon icon-green' />
-                <i className='circle icon icon-green' />
-                <i className='circle icon icon-green' /></td>
+              <th><h3 className="ui header">Life @ Nissan:: Part Replacement </h3></th>
+              <td></td>
             </tr>
             {rows_replacement}
           </tbody>
         </table>
+      }
       </div>
     )
   }
 }
 
 const BuildParts = (data, k, keyValue) => {
-  var rowsIcon = ''
-  rowsIcon += '<i className={'circle icon icon-red'} />'
-  rowsIcon += '<i className={'circle icon icon-red'} />'
-  
-  return rowsIcon
-  // data.data.map(function(vd, kd) {
-  //   return (<i className={'circle icon icon-red'} />)
-  // })
-  //var rowsIcon = []
-  // data.data.map(function(vd, kd) {
-  //   if (vd.status === 0) {
-  //     var classes = 'circle icon icon-green';
-  //   } else if (vd.status === 1) {
-  //     var classes = 'circle icon icon-blue';
-  //   } else {
-  //     var classes = 'circle icon icon-red';
-  //   }
-  //   rowsIcon.push(<i className={classes} />)
-  // });
 
-  // rowsIcon.push(<i className={'circle icon icon-red'} />)
-  // 
-  // return rowsIcon;
+  var rowsIcon = []
+  data.data.map(function(vd, kd) {
+    if (vd.status === 0) {
+      var classes = 'circle icon icon-green';
+    } else if (vd.status === 1) {
+      var classes = 'circle icon icon-blue';
+    } else {
+      var classes = 'circle icon icon-red';
+    }
+    rowsIcon.push(<i className={classes} key={kd}/>)
+  });
+  return (<div>{rowsIcon}</div>);
 }
 
 
