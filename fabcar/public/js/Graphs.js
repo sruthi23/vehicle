@@ -126,7 +126,7 @@ class Graphs extends React.Component {
         <table className='ui noborder very basic collapsing celled table'>
           <tbody>
             <tr>
-              <th><h3 className="ui header" data-content="Top Left" data-position="top left">Life @ Nissan:: Service </h3></th>
+              <th><h3 className="ui header">Life @ Nissan:: Service </h3></th>
               <td>{rows}</td>
             </tr>
             <tr>
