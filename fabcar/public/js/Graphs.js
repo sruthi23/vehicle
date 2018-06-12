@@ -4,12 +4,23 @@ class Graphs extends React.Component {
 
     this.state = {
       data: [],
-      query: ''
+      query: 'X4SD23FERTS34DF'
     };
   }
 
   componentDidMount(){
     $('.menu .item').tab()
+    this.requestData()
+  }
+
+  componentDidUpdate(){
+    $('i.circle').popup()
+    
+    $('td i.circle')
+      .transition({
+        animation : 'pulse',
+        interval  : 100
+      });
   }
 
   handleInputChange = e => {
@@ -66,7 +77,7 @@ class Graphs extends React.Component {
         } else {
           var classes = 'circle icon icon-red';
         }
-        return (<i className={classes} key={key} />);
+        return (<i className={classes} key={key} data-content={row.points} data-position="top center" />);
       });
     }
 
@@ -93,10 +104,10 @@ class Graphs extends React.Component {
       <div>
       <div className="ui form">
         <div className="two fields">
-        <p>X4SD23FERTS34DF</p>
           <div className="field">
             <input
               placeholder="Enter VIN ..."
+              defaultValue={'X4SD23FERTS34DF'}
               ref={input => (this.search = input)}
             />
           </div>
@@ -111,11 +122,11 @@ class Graphs extends React.Component {
         </div>
       </div>
 
-      {data.replacement && 
+      {data.replacement &&
         <table className='ui noborder very basic collapsing celled table'>
           <tbody>
             <tr>
-              <th><h3 className="ui header">Life @ Nissan:: Service </h3></th>
+              <th><h3 className="ui header" data-content="Top Left" data-position="top left">Life @ Nissan:: Service </h3></th>
               <td>{rows}</td>
             </tr>
             <tr>
@@ -142,7 +153,7 @@ const BuildParts = (data, k, keyValue) => {
     } else {
       var classes = 'circle icon icon-red';
     }
-    rowsIcon.push(<i className={classes} key={kd}/>)
+    rowsIcon.push(<i className={classes} key={kd} data-content={vd.points} data-position="top center" />)
   });
   return (<div>{rowsIcon}</div>);
 }
