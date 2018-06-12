@@ -71,3 +71,9 @@
 }
 }
 ```
+
+##### 3. Graph
+
+Graphical representation of overall status of the services and part replacement of a car can be found at :
+
+* url :http://ec2-54-191-119-86.us-west-2.compute.amazonaws.com:8081/api/query
