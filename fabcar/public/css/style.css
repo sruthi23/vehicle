@@ -118,17 +118,17 @@ p.ui.text {
 }
 
 .icon-green {
-  color: #50b051;
+  color: #00b902;
 }
 .icon-blue {
-  color: #fef851;
+  color: #e8e000;
 }
 .icon-red {
   color: #ed3833;
 }
 
 i.icon{
-  font-size: 2em
+  font-size: 1.3em
 }
 
 .ui.noborder.table tr td { border-top: 0px !important; }

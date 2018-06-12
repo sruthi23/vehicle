@@ -153,7 +153,7 @@ const BuildParts = (data, k, keyValue) => {
     } else {
       var classes = 'circle icon icon-red';
     }
-    rowsIcon.push(<i className={classes} key={kd} data-content={vd.points} data-position="top center" />)
+    rowsIcon.push(<i className={classes} key={kd} data-html={'<h2>g fdg dfg</h2>' + vd.points} data-position="top center" />)
   });
   return (<div>{rowsIcon}</div>);
 }
